@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207230538) do
+ActiveRecord::Schema.define(version: 20171207232122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20171207230538) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "job_roles", force: :cascade do |t|
+    t.bigint "meeting_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_job_roles_on_meeting_id"
+  end
+
   create_table "meetings", force: :cascade do |t|
     t.string "name"
     t.bigint "admin_id"
@@ -40,5 +48,6 @@ ActiveRecord::Schema.define(version: 20171207230538) do
     t.index ["admin_id"], name: "index_meetings_on_admin_id"
   end
 
+  add_foreign_key "job_roles", "meetings"
   add_foreign_key "meetings", "admins"
 end
