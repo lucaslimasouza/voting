@@ -26,6 +26,7 @@ group :development, :test do
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'rails-5'
   gem 'faker'
   gem "factory_bot_rails", "~> 4.0"
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do
