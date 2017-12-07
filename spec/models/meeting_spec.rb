@@ -9,5 +9,6 @@ RSpec.describe Meeting, type: :model do
 
   describe 'relations' do
     it { is_expected.to belong_to :admin }
+    it { is_expected.to have_many :job_roles }
   end
 end
