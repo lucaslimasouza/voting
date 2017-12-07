@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :meeting do
-    name "MyString"
-    admin nil
+    name Faker::Name.name
+    admin
   end
 end
