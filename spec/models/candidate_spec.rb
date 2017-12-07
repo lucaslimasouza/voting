@@ -8,6 +8,7 @@ RSpec.describe Candidate, type: :model do
   end
 
   describe 'relations' do
-    it { is_expected.to belong_to :job_role } 
+    it { is_expected.to belong_to :job_role }
+    it { is_expected.to have_many :votes }
   end
 end
