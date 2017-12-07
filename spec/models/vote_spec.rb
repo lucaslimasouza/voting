@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Vote, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validation' do
+    %i( user_id candidate_id ).each do |field|
+      it { is_expected.to validate_presence_of field }
+    end
+  end
 end
