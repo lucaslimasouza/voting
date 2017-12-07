@@ -6,4 +6,8 @@ RSpec.describe JobRole, type: :model do
       it { is_expected.to validate_presence_of field }
     end
   end
+
+  describe 'relations' do
+    it { is_expected.to have_many :candidates }
+  end
 end
