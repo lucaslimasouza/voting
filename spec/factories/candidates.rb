@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :candidate do
-    job_role nil
-    name "MyString"
+    name Faker::Name.name
+    job_role
   end
 end
