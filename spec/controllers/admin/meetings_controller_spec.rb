@@ -22,6 +22,11 @@ RSpec.describe Admin::MeetingsController, type: :controller do
       get :new
       expect(response).to have_http_status(:success)
     end
+
+    it "return new instance of Meeting" do
+      get :new
+      expect(assigns(:meeting)).to  be_new_record
+    end
   end
 
   describe "POST #create" do

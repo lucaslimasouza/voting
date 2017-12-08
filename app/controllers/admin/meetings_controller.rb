@@ -5,6 +5,8 @@ class Admin::MeetingsController < ApplicationController
   end
 
   def new
+    @meeting = Meeting.new
+    respond_with @meeting
   end
 
   def create
