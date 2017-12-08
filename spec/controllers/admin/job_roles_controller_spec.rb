@@ -9,16 +9,17 @@ RSpec.describe Admin::JobRolesController, type: :controller do
     end
   end
 
-  describe "GET #create" do
+  describe "POST #create" do
     it "returns http success" do
-      get :create
+      post :create
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      job_role = create(:job_role)
+      get :show, params: { id: job_role.to_param }
       expect(response).to have_http_status(:success)
     end
   end
