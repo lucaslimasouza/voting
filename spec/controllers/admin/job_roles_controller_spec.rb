@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Admin::JobRolesController, type: :controller do
 
-  describe "GET #new" do
-    let(:meeting) { create(:meeting) }
+  let(:meeting) { create(:meeting) }
 
+  describe "GET #new" do
     it "returns http success" do
       get :new, params: { meeting_id: meeting.id }
       expect(response).to have_http_status(:success)
@@ -30,8 +30,18 @@ RSpec.describe Admin::JobRolesController, type: :controller do
 
   describe "POST #create" do
     it "returns http success" do
-      post :create
-      expect(response).to have_http_status(:success)
+      post :create, params: {
+        job_role: attributes_for(:job_role, meeting_id: meeting.id)
+      }
+      expect(response).to redirect_to admin_meetings_url
+    end
+
+    it 'create a new JobRole' do
+      expect {
+        post :create, params: {
+          job_role: attributes_for(:job_role, meeting_id: meeting.id)
+        }
+      }.to change(JobRole, :count).by(1)
     end
   end
 
