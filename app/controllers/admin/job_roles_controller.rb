@@ -12,6 +12,8 @@ class Admin::JobRolesController < ApplicationController
   end
 
   def show
+    @job_role = JobRole.find params[:id]
+    respond_with @job_role
   end
 
   private

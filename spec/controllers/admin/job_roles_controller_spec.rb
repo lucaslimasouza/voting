@@ -59,10 +59,16 @@ RSpec.describe Admin::JobRolesController, type: :controller do
   end
 
   describe "GET #show" do
+    let(:job_role) { job_role = create(:job_role) }
+
     it "returns http success" do
-      job_role = create(:job_role)
       get :show, params: { id: job_role.to_param }
       expect(response).to have_http_status(:success)
+    end
+
+    it "assigns JobRole requested" do
+      get :show, params: { id: job_role.to_param }
+      expect(assigns(:job_role).id).to eq job_role.id
     end
   end
 
