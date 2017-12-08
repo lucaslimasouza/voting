@@ -1,4 +1,6 @@
 class Admin::MeetingsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @meetings = current_admin.meetings
     respond_with @meetings
