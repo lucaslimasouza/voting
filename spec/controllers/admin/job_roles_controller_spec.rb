@@ -14,6 +14,17 @@ RSpec.describe Admin::JobRolesController, type: :controller do
       post :create
       expect(response).to have_http_status(:success)
     end
+
+    it 'return new instance of JobRole' do
+      get :new, params: { meeting_id: create(:meeting).id }
+      expect(assigns(:job_role)).to be_new_record
+    end
+
+    it 'return new instance of JobRole with meeting' do
+      meeting = create(:meeting)
+      get :new, params: { meeting_id: meeting.id }
+      expect(assigns(:job_role).meeting.id).to eq meeting.id
+    end
   end
 
   describe "GET #show" do
