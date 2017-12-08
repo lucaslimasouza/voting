@@ -1,5 +1,7 @@
 class Admin::MeetingsController < ApplicationController
   def index
+    @meetings = current_admin.meetings
+    respond_with @meetings
   end
 
   def new

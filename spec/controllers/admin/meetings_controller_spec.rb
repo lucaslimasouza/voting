@@ -8,6 +8,13 @@ RSpec.describe Admin::MeetingsController, type: :controller do
       get :index
       expect(response).to have_http_status(:success)
     end
+
+    it "returns meetings from current_admin" do
+      subject.current_admin.meetings = build_list(:meeting, 2)
+      subject.current_admin.save
+      get :index
+      expect(assigns(:meetings).count).to eq 2
+    end
   end
 
   describe "GET #new" do
