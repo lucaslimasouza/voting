@@ -36,23 +36,25 @@ RSpec.describe Admin::JobRolesController, type: :controller do
       expect(response).to redirect_to admin_meetings_url
     end
 
-    it 'creates a new JobRole' do
-      expect {
+    context 'new JobRole' do
+      it 'creates' do
+        expect {
+          post :create, params: {
+            job_role: attributes_for(:job_role, meeting_id: meeting.id)
+          }
+        }.to change(JobRole, :count).by(1)
+      end
+
+      it 'creates with candidates attributes' do
+        candidates_attributes = {
+          candidates_attributes: [build(:candidate).attributes]
+        }
         post :create, params: {
           job_role: attributes_for(:job_role, meeting_id: meeting.id)
-        }
-      }.to change(JobRole, :count).by(1)
-    end
-
-    it 'creates a new JobRole with candidates attributes' do
-      candidates_attributes = {
-        candidates_attributes: [build(:candidate).attributes]
-      }
-      post :create, params: {
-        job_role: attributes_for(:job_role, meeting_id: meeting.id)
           .merge(candidates_attributes)
-      }
-      expect(JobRole.last.candidates.count).to eq 1
+        }
+        expect(JobRole.last.candidates.count).to eq 1
+      end
     end
   end
 
