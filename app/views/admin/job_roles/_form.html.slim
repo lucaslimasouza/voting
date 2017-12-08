@@ -1,2 +1,12 @@
-h1 Admin::JobRoles#create
-p Find me in app/views/admin/job_roles/create.html.slim
+=simple_form_for(@job_role,
+                  url: admin_job_roles_path,
+                  method: :post,
+                  html: { class: 'form-horizontal'}) do |f|
+  = f.input :meeting_id, as: :hidden
+  = f.input :name
+
+  h4 Candidates
+  = f.simple_fields_for :candidates do |fc|
+    = fc.input :name
+
+  = f.button :submit
