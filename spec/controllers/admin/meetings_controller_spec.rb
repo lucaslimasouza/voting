@@ -25,7 +25,7 @@ RSpec.describe Admin::MeetingsController, type: :controller do
 
     it "return new instance of Meeting" do
       get :new
-      expect(assigns(:meeting)).to  be_new_record
+      expect(assigns(:meeting)).to be_new_record
     end
   end
 
