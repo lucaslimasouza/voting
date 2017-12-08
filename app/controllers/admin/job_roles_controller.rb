@@ -16,6 +16,10 @@ class Admin::JobRolesController < ApplicationController
 
   private
     def job_role_params
-      params.require(:job_role).permit(:name, :meeting_id)
+      params.require(:job_role).permit(
+        :name,
+        :meeting_id,
+        candidates_attributes: [:id, :name]
+      )
     end
 end
