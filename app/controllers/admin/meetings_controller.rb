@@ -15,7 +15,7 @@ class Admin::MeetingsController < ApplicationController
     @meeting = Meeting.new(meeting_params)
     @meeting.admin = current_admin
     @meeting.save
-    respond_with @meeting
+    respond_with @meeting, location: admin_meetings_path
   end
 
   private

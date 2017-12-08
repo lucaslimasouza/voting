@@ -36,6 +36,11 @@ RSpec.describe Admin::MeetingsController, type: :controller do
           post :create, params: { meeting: attributes_for(:meeting) }
         }.to change(Meeting, :count).by(1)
       end
+
+      it "redirect to meeting #index" do
+        post :create, params: { meeting: attributes_for(:meeting) }
+        expect(response).to redirect_to(admin_meetings_url)
+      end
     end
   end
 
