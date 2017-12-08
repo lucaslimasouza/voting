@@ -8,7 +8,7 @@ class Admin::JobRolesController < ApplicationController
 
   def create
     @job_role = JobRole.create(job_role_params)
-    respond_with @job_role, location: admin_meetings_path
+    respond_with :admin, @job_role
   end
 
   def show

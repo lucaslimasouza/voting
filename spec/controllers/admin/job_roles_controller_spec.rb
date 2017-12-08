@@ -33,7 +33,7 @@ RSpec.describe Admin::JobRolesController, type: :controller do
       post :create, params: {
         job_role: attributes_for(:job_role, meeting_id: meeting.id)
       }
-      expect(response).to redirect_to admin_meetings_url
+      expect(response).to redirect_to admin_job_role_url(JobRole.last)
     end
 
     context 'new JobRole' do
