@@ -5,6 +5,8 @@ RSpec.describe Meeting, type: :model do
     %i( name admin_id ).each do |field|
       it { is_expected.to validate_presence_of field }
     end
+
+    it { is_expected.to validate_length_of(:name).is_at_most(30)}
   end
 
   describe 'relations' do
