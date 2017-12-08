@@ -1,0 +1,6 @@
+= simple_form_for(@meeting,
+                    :url => new_admin_meeting_path,
+                    method: :post,
+                    html: { class: 'form-horizontal' }) do |f|
+  = f.input :name
+  = f.button :submit
