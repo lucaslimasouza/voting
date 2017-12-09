@@ -19,6 +19,7 @@ gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'simple_form'
 gem 'jquery-rails'
+gem 'devise-bootstrapped'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
