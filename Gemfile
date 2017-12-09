@@ -20,6 +20,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'devise-bootstrapped'
+gem "react_on_rails", "10.0.0"
+gem "webpacker", "~> 3.0"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -39,6 +41,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'foreman'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
