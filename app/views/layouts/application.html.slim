@@ -7,6 +7,20 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    .navbar.navbar-default.navbar-static-top
+      .container
+        button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        =link_to "Voting", '#', class: "navbar-brand", id: "logo"
+        -if admin_signed_in?
+          .navbar-text.navbar-right
+            =link_to 'Log out',
+              destroy_admin_session_path,
+              method: :delete,
+              class: "navbar-link"
+
     .container
       .row
         .col-lg-12
