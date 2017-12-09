@@ -1,8 +1,22 @@
 h1 Admin::Meetings#index
 
 - @meetings.each do |meeting|
-  .row
-    .col-lg-10
-      h3=meeting.name
-    .col-lg-2
-      =link_to 'new job role', new_admin_job_role_path(meeting_id: meeting.id)
+  .panel.panel-default
+    .panel-heading=meeting.name
+    .panel-body
+      =link_to 'add job role',
+        new_admin_job_role_path(meeting_id: meeting.id),
+        :class => 'btn btn-primary pull-right'
+
+    table.table.table-striped
+      thead
+        tr
+          th Job Role
+          th
+      tbody
+        - meeting.job_roles.each do |job_role|
+          tr
+            td= job_role.name
+            td
+              =link_to 'Details',
+                admin_job_role_path(job_role)
