@@ -1,4 +1,11 @@
-h1 Admin::Meetings#index
+.row
+  .col-lg-10
+    h1 Meetings
+  .col-lg-2
+    h1
+      =link_to 'add meeting',
+        new_admin_meeting_path,
+        class: 'btn btn-primary pull-right'
 
 - @meetings.each do |meeting|
   .panel.panel-default
@@ -6,7 +13,7 @@ h1 Admin::Meetings#index
     .panel-body
       =link_to 'add job role',
         new_admin_job_role_path(meeting_id: meeting.id),
-        :class => 'btn btn-primary pull-right'
+        class: 'btn btn-primary pull-right'
 
     table.table.table-striped
       thead
