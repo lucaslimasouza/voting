@@ -4,12 +4,28 @@ import React from 'react';
 const MeetingsList = ({ meetings }) => {
 
   const emptyMessage = <p>There no meetings yet</p>;
-  const meetingsList = (
-    <ul>{ meetings.map(meeting => <li key={meeting.id}>{meeting.name}</li>) }</ul>
-  );
+
+  const jobList = (jobRoles) => {
+    return jobRoles.map(job => {
+      return <li key={job.id}>
+          {job.name}
+        </li>;
+    });
+  };
+
+  const meetingsList = () => {
+    return meetings.map(meeting => {
+      return <li key={meeting.id}>
+          {meeting.name}
+          <ul>
+            { jobList(meeting.job_roles) }
+          </ul>
+        </li>;
+    });
+  };
 
   return (
-    <div>{ meetings.length == 0 ? emptyMessage : meetingsList }</div>
+    <div>{ meetings.length == 0 ? emptyMessage : meetingsList() }</div>
   );
 };
 
