@@ -16,6 +16,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'responders'
 gem 'slim-rails'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'simple_form'
+gem 'jquery-rails'
+gem 'devise-bootstrapped'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -27,6 +31,7 @@ group :development, :test do
   gem 'faker'
   gem "factory_bot_rails", "~> 4.0"
   gem 'rspec-rails', '~> 3.6'
+  gem 'rails-controller-testing'
 end
 
 group :development do

@@ -11,5 +11,6 @@ RSpec.describe JobRole, type: :model do
 
   describe 'relations' do
     it { is_expected.to have_many :candidates }
+    it {is_expected.to accept_nested_attributes_for :candidates }
   end
 end

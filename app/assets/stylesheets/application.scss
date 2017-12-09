@@ -1,0 +1,23 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ #logo {
+   float: left;
+   margin-right: 10px;
+   font-size: 1.7em;
+   color: #0669DE;
+   text-transform: uppercase;
+   letter-spacing: -1px;
+   padding-top: 9px;
+   font-weight: bold;
+ }
+
+ #logo:hover {
+   color: #0669DE;
+   text-decoration: none;
+ }
