@@ -13,4 +13,5 @@ WORKDIR /voting
 COPY Gemfile /voting/Gemfile
 COPY Gemfile.lock /voting/Gemfile.lock
 RUN bundle install
+RUN yarn install
 COPY . /voting

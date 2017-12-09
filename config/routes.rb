@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   namespace :admin do
     resources :meetings, only: [:index, :new, :create]
     resources :job_roles, only: [:new, :create, :show]
