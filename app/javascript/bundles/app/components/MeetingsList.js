@@ -8,8 +8,10 @@ const MeetingsList = ({ meetings }) => {
   const jobList = (jobRoles) => {
     return jobRoles.map(job => {
       return <li key={job.id}>
-          {job.name}
-        </li>;
+              <a href={'/job_roles/' + job.id }>
+                {job.name}
+              </a>
+            </li>;
     });
   };
 
