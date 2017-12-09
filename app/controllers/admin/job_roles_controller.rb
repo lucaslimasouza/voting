@@ -8,6 +8,7 @@ class Admin::JobRolesController < ApplicationController
 
   def create
     @job_role = JobRole.create(job_role_params)
+    3.times { @job_role.candidates.build } if @job_role.candidates.empty?
     respond_with :admin, @job_role
   end
 
