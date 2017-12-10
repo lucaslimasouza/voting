@@ -1,0 +1,18 @@
+-if admin_signed_in?
+  .navbar-text.navbar-right
+    =link_to 'Log out',
+      destroy_admin_session_path,
+      method: :delete,
+      class: "navbar-link"
+
+-if user_signed_in?
+  .navbar-text.navbar-right
+    =link_to 'Admin',
+      admin_meetings_path,
+      class: "navbar-link"
+
+  .navbar-text.navbar-right
+    =link_to 'Log out',
+      destroy_user_session_path,
+      method: :delete,
+      class: "navbar-link"
