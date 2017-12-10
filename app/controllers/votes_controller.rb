@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  layout "meeting"
+  layout "voting"
   before_action :authenticate_user!
 
   def new

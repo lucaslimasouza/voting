@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MeetingsController < ApplicationController
-  layout "meeting"
+  layout "voting"
 
   def index
     @meetings =  { meetings: meetings_serialized }
