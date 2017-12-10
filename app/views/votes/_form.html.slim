@@ -1,16 +1,16 @@
-.row
-  .col-lg-12
-    h1= @vote.job_role.name
+.panel.panel-default
+  .panel-heading= @vote.job_role.name
+  .panel-body
+    .row
+      .col-lg-12
+        p Who is your candidate?
 
-.row
-  .col-lg-12
-    h3 Who is your candidate?
+    .row
+      .col-lg-12
+        = simple_form_for @vote do |f|
+          = render 'shared/error_messages', object: f.object
 
-.row
-  = simple_form_for @vote do |f|
-    = render 'shared/error_messages', object: f.object
-
-    = f.input :job_role_id, as: :hidden
-    = f.collection_radio_buttons :candidate_id, @vote.job_role.candidates, :id, :name, checked: true
-    br
-    = f.submit 'Vote', class: "btn btn-primary"
+          = f.input :job_role_id, as: :hidden
+          = f.collection_radio_buttons :candidate_id, @vote.job_role.candidates, :id, :name, class: "candidate-radio-buton"
+          br
+          = f.submit 'Vote', class: "btn btn-primary"
