@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207234445) do
+ActiveRecord::Schema.define(version: 20171210170841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,9 @@ ActiveRecord::Schema.define(version: 20171207234445) do
     t.bigint "candidate_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "job_role_id"
     t.index ["candidate_id"], name: "index_votes_on_candidate_id"
+    t.index ["job_role_id"], name: "index_votes_on_job_role_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
@@ -86,5 +88,6 @@ ActiveRecord::Schema.define(version: 20171207234445) do
   add_foreign_key "job_roles", "meetings"
   add_foreign_key "meetings", "admins"
   add_foreign_key "votes", "candidates"
+  add_foreign_key "votes", "job_roles"
   add_foreign_key "votes", "users"
 end
