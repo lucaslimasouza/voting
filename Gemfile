@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'devise-bootstrapped'
 gem "react_on_rails", "10.0.0"
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -30,7 +31,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', branch: 'rails-5'
-  gem 'faker'
   gem "factory_bot_rails", "~> 4.0"
   gem 'rspec-rails', '~> 3.6'
   gem 'rails-controller-testing'
