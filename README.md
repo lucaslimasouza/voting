@@ -1,24 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Requisitos
 
-Things you may want to cover:
+* [Docker Engine](https://docs.docker.com/installation/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
 
-* Ruby version
+Para executar a aplicação, realize os sequintes passos, no diretório da aplicação:
 
-* System dependencies
+1-)
+```
+  docker-compose build
+```
+Depois de definido as imagens necessárias, já é possível rodar a aplicação através do comando abaixo:
 
-* Configuration
+2-)
+```
+  docker-compose up
+```
 
-* Database creation
+Para criar o banco, execute o comando abaixo
 
-* Database initialization
+3-)
+para normalizar a base de dodos:
+```
+  docker-compose run web rake db:setup
+```
 
-* How to run the test suite
+Agora a aplicação pode ser acessado pelo host http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
+##Acesso admin
+email: 'admin@mail.com', senha: '12345678'
 
-* Deployment instructions
+##Acesso Votação
+email: 'user@mail.com', senha: '12345678'
 
-* ...
+##Testes
+execute o sequinte comando para executar os testes:
+```
+  docker-compose run web rspec
+```
+
+## Observação
+
+Se você parar a aplicação de exemplo e tentar reiniciá-la, você pode receber o
+seguinte erro: web_1 | Um servidor já está em execução.
+
+Verifique:
+```
+/indeva/tmp/pids/server.pid
+```
+Uma maneira de resolver isso é excluir o arquivo:
+
+```
+sudo rm tmp /pids /server.pid
+```
+e em seguida, reiniciar a aplicação com docker-compose up.
