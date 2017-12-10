@@ -1,2 +1,10 @@
-h1 Admin::JobRoles#show
-p Find me in app/views/admin/job_roles/show.html.slim
+.panel.panel-default
+  .panel-heading=@job_role.name
+  .panel-body
+    ul.list-group
+      - @job_role.candidates.each do |candidate|
+        li.list-group-item= candidate.name
+
+=link_to 'back',
+  admin_meetings_path,
+  class: 'btn btn-primary pull-right'
