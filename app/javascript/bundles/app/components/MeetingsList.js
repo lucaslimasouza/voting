@@ -7,7 +7,7 @@ const MeetingsList = ({ meetings }) => {
 
   const jobList = (jobRoles) => {
     return jobRoles.map(job => {
-      return <li key={job.id}>
+      return <li className="list-group-item" key={job.id}>
               <a href={'/votes/new?job_role_id=' + job.id }>
                 {job.name}
               </a>
@@ -17,9 +17,9 @@ const MeetingsList = ({ meetings }) => {
 
   const meetingsList = () => {
     return meetings.map(meeting => {
-      return <li key={meeting.id}>
+      return <li className="list-group-item" key={meeting.id}>
           {meeting.name}
-          <ul>
+          <ul className="list-group">
             { jobList(meeting.job_roles) }
           </ul>
         </li>;
@@ -27,7 +27,7 @@ const MeetingsList = ({ meetings }) => {
   };
 
   return (
-    <div>{ meetings.length == 0 ? emptyMessage : meetingsList() }</div>
+    <div>{ meetings.length == 0 ? emptyMessage : <ul className="list-group"> { meetingsList() } </ul> }</div>
   );
 };
 
