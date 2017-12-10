@@ -2,6 +2,12 @@ class VotesController < ApplicationController
   layout "meeting"
   before_action :authenticate_user!
 
+  def new
+    @vote = Vote.new
+    @vote.job_role = JobRole.find(params[:job_role_id])
+    respond_with @vote
+  end
+
   def create
     @vote = Vote.new(vote_params)
     @vote.save
@@ -12,7 +18,7 @@ class VotesController < ApplicationController
     def vote_params
       params
         .require(:vote)
-        .permit(:candidate_id)
+        .permit(:candidate_id, :job_role_id)
         .merge({user_id: current_user.id})
     end
 end

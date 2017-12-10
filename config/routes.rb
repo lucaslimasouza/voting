@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'meetings#index'
   resources :job_roles, only: [:show]
+  resources :votes, only: [:create, :new]
   namespace :admin do
     resources :meetings, only: [:index, :new, :create]
     resources :job_roles, only: [:new, :create, :show]

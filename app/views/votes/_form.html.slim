@@ -1,0 +1,16 @@
+.row
+  .col-lg-12
+    h1= @vote.job_role.name
+
+.row
+  .col-lg-12
+    h3 Who is your candidate?
+
+.row
+  = simple_form_for @vote do |f|
+    = render 'shared/error_messages', object: f.object
+
+    = f.input :job_role_id, as: :hidden
+    = f.collection_radio_buttons :candidate_id, @vote.job_role.candidates, :id, :name, checked: true
+    br
+    = f.submit 'Vote', class: "btn btn-primary"
