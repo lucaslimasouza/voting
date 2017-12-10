@@ -9,7 +9,7 @@ RSpec.describe Vote, type: :model do
     it {
       create(:vote)
       is_expected.to validate_uniqueness_of(:job_role_id)
-        .scoped_to([:candidate_id, :user_id])
+        .scoped_to(:user_id)
     }
   end
 end
